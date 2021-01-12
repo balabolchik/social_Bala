@@ -1,0 +1,36 @@
+.nav {
+    padding: 5px;
+    grid-area: n;
+    font-size: 24px;
+    border: 2px solid black;
+    max-height: fit-content;
+    max-width: inherit;
+  }
+  
+  .nav div {
+    display: inline-block;
+    width: 60px;
+    width: 100%;
+  }
+  
+  .nav div a {
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav div a:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .nav div a.active {
+    background-color: gray;
+  }
+
+  
+  .nav .setting {
+    margin-top: 30px;
+  }

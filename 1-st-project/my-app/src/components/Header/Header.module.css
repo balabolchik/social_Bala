@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Montserrat+Alternates:ital,wght@1,500&display=swap');
+
+.header {
+  padding: 5px;
+  grid-area: h;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid black;
+}
+  
+.header img {
+  border-radius: 50%;
+  padding: 10px;
+  height: 55px;
+  transition: all 0.5s;
+  transform: scale(0.9);
+}
+
+.header img:hover {
+  transform: scale(1);
+}
+  
+  
+  
+.header h1 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  transform: scale(0.9);
+  cursor: default;
+  transition: all 0.5s;
+  text-shadow: 0px 1px 5px black;
+}
+  
+.header h1:hover {
+  transform: scale(1) translate3d(0px, -10px, 0px);
+  text-shadow: 0px 12px 7px black;
+}
