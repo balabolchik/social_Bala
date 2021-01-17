@@ -3,7 +3,7 @@
     grid-template-columns: 3fr 10fr;
     grid-gap: 10px;
     border: 2px solid black;
-
+    background-color: white;
 }
 
 .dialogsList {

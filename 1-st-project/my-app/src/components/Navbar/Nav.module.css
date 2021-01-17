@@ -5,6 +5,7 @@
     border: 2px solid black;
     max-height: fit-content;
     max-width: inherit;
+    background-color: white;
   }
   
   .nav div {

@@ -1,4 +1,4 @@
-import './App.css';
+import style from './App.module.css';
 import Header from './components/Header/Header';
 import Nav from './components/Navbar/Nav';
 import MyPage from './components/MyPage/MyPage';
@@ -10,11 +10,11 @@ import Settings from './components/Settings/Settings';
 
 const App = (props) => {
     return (
-        <div className="App">
+        <div className={style.App}>
             <Header />
             <Nav />
-            <div className="App_content">
-                <Route path="/profile" render={() => <MyPage profilePage={props.state.profilePage} addNewPost={props.addNewPost} />} />
+            <div className={style.App_content}>
+                <Route path="/profile" render={() => <MyPage profilePage={props.state.profilePage} dispatch={props.dispatch} />} />
                 <Route path="/dialogs" render={() => <Dialogs messagesPage={props.state.messagesPage} />} />
                 <Route path="/news" render={() => <News />} />
                 <Route path="/musics" render={() => <Musics />} />

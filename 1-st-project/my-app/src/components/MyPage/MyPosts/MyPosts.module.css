@@ -1,7 +1,25 @@
-h3 {
+.myPosts h3 {
     margin-bottom: 5px;
 }
 
-.send {
+.myPosts div div textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addPost {
+    border-radius: 10px/50%;
+    width: 150px;
+    height: 30px;
     margin-top: 5px;
+    background-color: black;
+    color: white;
 }

@@ -8,23 +8,26 @@ const MyPosts = (props) => {
     let newPostText = React.createRef();
 
     let addPost = () => {
+        props.dispatch({type: "ADD-POST"});
+    };
+    
+    let onPostChange = () => {
         let text = newPostText.current.value;
-        if (text === "") return;
-        props.addNewPost(text);
-        newPostText.current.value = "";
+        props.dispatch({type: "UPDATE-NEW-POST-TEXT", newtext: text});
     }
 
     return (
-        <div>
-            <div>
+        <div className={style.myPosts}>
+            <div className={style.newPost}>
                 <h3>New posts</h3>
                 <div>
-                    <input type='text' placeholder='your news' ref={newPostText} />
+                    <textarea type='text' placeholder='Your news' ref={newPostText} value={props.profilePage.newPostText} onChange={onPostChange} />
                 </div>
-                <div>
-                    <button className={style.send} onClick={ addPost }>ADD POST</button>
+                <div className={style.button}>
+                    <button className={style.addPost} onClick={ addPost }>ADD POST</button>
                 </div>
             </div>
+            <h2>Posts</h2>
             { myPosts }
         </div>
     );

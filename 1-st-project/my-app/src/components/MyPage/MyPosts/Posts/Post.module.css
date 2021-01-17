@@ -1,0 +1,10 @@
+.post {
+    border: 1px solid black;
+    border-radius: 5px;
+    max-width: 788px;
+    margin-top: 10px;
+}
+
+.postText {
+    max-width: 100%;
+}

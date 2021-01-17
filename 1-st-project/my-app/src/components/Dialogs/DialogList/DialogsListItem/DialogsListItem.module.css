@@ -17,7 +17,11 @@
 }
 
 .dialogsListItem.active {
-    background-color: rgb(212, 212, 212);
+    background-color:grey;
+}
+
+.dialogsListItem.active:hover p {
+    color: white;
 }
 
 .dialogsListItem.active p {
