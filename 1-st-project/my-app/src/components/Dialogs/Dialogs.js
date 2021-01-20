@@ -2,15 +2,18 @@ import React from 'react';
 import style from "./Dialogs.module.css";
 import DialogsList from './DialogList/DialogsList';
 import Message from "./Message/Message";
+import { sendMessageCreator, u, updateNewMessageTextCreator } from '../../Redux/store';
 
 const Dialogs = (props) => {
     
     let pushMessages = props.messagesPage.userMessages.map( m => <Message userMessage={m.userMessage}/>);
-    let messageText = React.createRef();
 
     let sendMessage = () => {
-        alert(messageText.current.value);
-        messageText.current.value = "";
+        props.dispatch(sendMessageCreator())
+    };
+
+    let updateNewMessageText = (el) => { 
+        props.dispatch(updateNewMessageTextCreator(el.target.value))
     };
 
     return (
@@ -20,8 +23,8 @@ const Dialogs = (props) => {
             </div>
             <div className={style.dialog}>
                 { pushMessages }
-                <input ref={messageText} placeholder="Your message!" />
-                <button onClick={ sendMessage }>SEND</button>
+                <textarea className={style.newMessage} onChange={ updateNewMessageText } value={props.messagesPage.newMessageText} placeholder="Your message!" />
+                <button className={style.sendMessage} onClick={ sendMessage }>SEND</button>
             </div>
         </div>
     )

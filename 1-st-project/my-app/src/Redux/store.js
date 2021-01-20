@@ -1,3 +1,8 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const SEND_MESSAGE = "SEND-MESSAGE";
+
 let store = {
     _state: {
         messagesPage: {
@@ -17,7 +22,8 @@ let store = {
                 { id: 7, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd" },
                 { id: 8, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd" },
                 { id: 9, userMessage: "Nastya, you are so beautifull!" }
-            ]
+            ],
+            newMessageText: ``
         },
         profilePage: {       
             userPosts: [
@@ -26,9 +32,13 @@ let store = {
                 { id: 3, text: "My third post!" },
                 { id: 4, text: "My last post!" },
             ],
-            newPostText: ""
-        }
+            newPostText: ``
+        },
+        newsPage: {},
+        musicPage: {},
+        settingsPage: {}
     },
+    
     _callSubscriber() {
         console.log("State changed");
     },    
@@ -41,18 +51,37 @@ let store = {
     },
     
     dispatch(action) {
-        if (action.type === "ADD-POST") {
+        if (action.type === ADD_POST) {
             if (this._state.profilePage.newPostText !== "") {
-                this._state.profilePage.userPosts.push({id: 5, text:this._state.profilePage.newPostText});
+                this._state.profilePage.userPosts.push({id: 5, text: `${this._state.profilePage.newPostText}`});
             }
+            this._state.profilePage.newPostText = ``;
             this._callSubscriber();
-            this._state.profilePage.newPostText = '';
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-            this._state.profilePage.newPostText = action.newtext;
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.newPostText = action.newPostText;
             this._callSubscriber();
-        }
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.messagesPage.newMessageText = action.newMessageText;
+            this._callSubscriber();
+        } else if (action.type === SEND_MESSAGE) {
+            if (this._state.messagesPage.newMessageText !==``) {
+                this._state.messagesPage.userMessages.push({id: 10, userMessage: `${this._state.messagesPage.newMessageText}`})
+            };
+            this._state.messagesPage.newMessageText = "";
+            this._callSubscriber();
+        };
     }
 }
+
+export const updateNewPostTextCreator = text => ({type: UPDATE_NEW_POST_TEXT, newPostText: text});
+
+export const addPostCreator = () => ({type: ADD_POST});
+
+export const updateNewMessageTextCreator = text => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: text});
+
+export const sendMessageCreator = () => ({type: SEND_MESSAGE});
+
+
  
 
 export default store;
