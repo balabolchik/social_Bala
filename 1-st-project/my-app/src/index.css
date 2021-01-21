@@ -4,3 +4,7 @@ body {
     overflow-y: visible;
     background-color: rgb(220, 220, 220);
 }
+
+button {
+    cursor: pointer;
+}

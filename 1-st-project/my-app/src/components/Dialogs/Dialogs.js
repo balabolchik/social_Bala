@@ -2,18 +2,17 @@ import React from 'react';
 import style from "./Dialogs.module.css";
 import DialogsList from './DialogList/DialogsList';
 import Message from "./Message/Message";
-import { sendMessageCreator, u, updateNewMessageTextCreator } from '../../Redux/store';
 
 const Dialogs = (props) => {
-    
+    debugger;
     let pushMessages = props.messagesPage.userMessages.map( m => <Message userMessage={m.userMessage}/>);
 
     let sendMessage = () => {
-        props.dispatch(sendMessageCreator())
+        props.sendMessage();
     };
 
-    let updateNewMessageText = (el) => { 
-        props.dispatch(updateNewMessageTextCreator(el.target.value))
+    let updateNewMessageText = (el) => {
+        props.updateNewMessageText(el.target.value)
     };
 
     return (

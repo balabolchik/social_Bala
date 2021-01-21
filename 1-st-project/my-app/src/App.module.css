@@ -29,3 +29,7 @@
 .App .App_content {
   grid-area: c;
 }
+
+.App.App_content:only-child {
+  padding: 10px;
+}

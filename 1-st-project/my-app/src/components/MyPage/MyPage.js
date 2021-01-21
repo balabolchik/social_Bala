@@ -1,5 +1,5 @@
 import style from "./MyPage.module.css";
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const MyPage = (props) => {
@@ -9,7 +9,7 @@ const MyPage = (props) => {
                 <ProfileInfo />
             </div>
             <div>
-                <MyPosts profilePage={props.profilePage} dispatch={props.dispatch} />
+                <MyPostsContainer store={props.store} />
             </div>
         </div>
     );

@@ -1,3 +1,9 @@
+import messagesReducer from "./messages-reducer";
+import musicReducer from "./music-reducer";
+import newsReducer from "./news-reducer";
+import profileReducer from "./profile-reducer";
+import settingsReducer from "./settings-reducer";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
@@ -34,8 +40,8 @@ let store = {
             ],
             newPostText: ``
         },
-        newsPage: {},
         musicPage: {},
+        newsPage: {},
         settingsPage: {}
     },
     
@@ -51,38 +57,13 @@ let store = {
     },
     
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            if (this._state.profilePage.newPostText !== "") {
-                this._state.profilePage.userPosts.push({id: 5, text: `${this._state.profilePage.newPostText}`});
-            }
-            this._state.profilePage.newPostText = ``;
-            this._callSubscriber();
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newPostText;
-            this._callSubscriber();
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.messagesPage.newMessageText = action.newMessageText;
-            this._callSubscriber();
-        } else if (action.type === SEND_MESSAGE) {
-            if (this._state.messagesPage.newMessageText !==``) {
-                this._state.messagesPage.userMessages.push({id: 10, userMessage: `${this._state.messagesPage.newMessageText}`})
-            };
-            this._state.messagesPage.newMessageText = "";
-            this._callSubscriber();
-        };
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.newsPage = newsReducer(this._state.newsPage, action);
+        this._state.musicPage = musicReducer(this._state.musicPage, action);
+        this._state.settingsPage = settingsReducer(this._state.settingsPage, action);
     }
 }
-
-export const updateNewPostTextCreator = text => ({type: UPDATE_NEW_POST_TEXT, newPostText: text});
-
-export const addPostCreator = () => ({type: ADD_POST});
-
-export const updateNewMessageTextCreator = text => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: text});
-
-export const sendMessageCreator = () => ({type: SEND_MESSAGE});
-
-
- 
 
 export default store;
 window.store=store;

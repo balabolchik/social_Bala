@@ -1,18 +1,17 @@
 import Post from "./Posts/Post";
 import style from "./MyPosts.module.css";
 import React from 'react';
-import { addPostCreator, updateNewPostTextCreator } from "../../../Redux/store";
 
 const MyPosts = (props) => {
 
     let myPosts = props.profilePage.userPosts.map(post => <Post text={post.text} />)
 
     let addNewPost = () => {
-        props.dispatch(addPostCreator());
+        props.addNewPost();
     };
     
     let updateNewPostText = (el) => {
-        props.dispatch(updateNewPostTextCreator(el.target.value));
+        props.updateNewPostText(el.target.value);
     }
 
     return (

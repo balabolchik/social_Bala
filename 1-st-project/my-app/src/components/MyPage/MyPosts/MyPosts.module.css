@@ -23,3 +23,7 @@
     background-color: black;
     color: white;
 }
+
+.addPost:focus {
+    outline: none;
+}
