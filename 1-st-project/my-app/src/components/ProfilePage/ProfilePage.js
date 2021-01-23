@@ -1,18 +1,18 @@
-import style from "./MyPage.module.css";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import style from "./ProfilePage.module.css";
+import UserPostsContainer from "./UserPosts/UserPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const MyPage = (props) => {
+const ProfilePage = (props) => {
     return (
         <div className={style.myPage}>
             <div>
                 <ProfileInfo />
             </div>
             <div>
-                <MyPostsContainer store={props.store} />
+                <UserPostsContainer />
             </div>
         </div>
     );
-}
+};
 
-export default (MyPage);
+export default ProfilePage;

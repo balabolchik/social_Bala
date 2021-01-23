@@ -1,8 +1,8 @@
 import Post from "./Posts/Post";
-import style from "./MyPosts.module.css";
+import style from "./UserPosts.module.css";
 import React from 'react';
 
-const MyPosts = (props) => {
+const UserPosts = (props) => {
 
     let myPosts = props.profilePage.userPosts.map(post => <Post text={post.text} />)
 
@@ -31,4 +31,4 @@ const MyPosts = (props) => {
     );
 };
 
-export default (MyPosts);
+export default (UserPosts);

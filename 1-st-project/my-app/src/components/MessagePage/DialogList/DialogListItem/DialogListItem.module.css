@@ -17,14 +17,14 @@
 }
 
 .dialogsListItem.active {
-    background-color:grey;
-}
-
-.dialogsListItem.active:hover p {
-    color: white;
+    background-color:rgb(150, 150, 150);
 }
 
 .dialogsListItem.active p {
+    color: white;
+}
+
+.dialogsListItem.active:hover p {
     color: white;
 }
 
@@ -47,5 +47,3 @@
     margin: 0px;
     grid-area: 2/2/2/2 ;
 }
-
-

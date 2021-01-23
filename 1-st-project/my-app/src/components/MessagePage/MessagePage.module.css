@@ -1,0 +1,17 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+    grid-gap: 10px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+.dialogsList {
+    border-width: 0px;
+    margin-top: -1px;
+}
+
+.messages {
+    padding: 2px;
+}
+

@@ -6,12 +6,12 @@ import settingsReducer from "./settings-reducer";
 
 let redusers = combineReducers({
     profilePage: profileReducer,
-    messagesPage: messagesReducer,
+    messagePage: messagesReducer,
     musicPage: musicReducer,
     newsPage: musicReducer,
-    settingsPage: settingsReducer
+    settingsPage: settingsReducer,
 });
 
 let store = createStore(redusers);
-
+window.store = store;
 export default store;

@@ -1,5 +1,5 @@
-import style from "./DialogsList.module.css";
-import DialogsListItem from "./DialogsListItem/DialogsListItem";
+import style from "./DialogList.module.css";
+import DialogsListItem from "./DialogListItem/DialogListItem";
 
 const DialogList = (props) => {
 

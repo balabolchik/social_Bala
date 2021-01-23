@@ -1,12 +1,12 @@
-import style from './App.module.css';
-import Header from './components/Header/Header';
-import Nav from './components/Navbar/Nav';
-import MyPage from './components/MyPage/MyPage';
-import { Route } from 'react-router-dom';
-import News from './components/News/News';
-import Musics from './components/Musics/Musics';
-import Settings from './components/Settings/Settings';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
+import style from "./App.module.css";
+import Header from "./components/Header/Header";
+import Nav from "./components/Navbar/Nav";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
+import { Route } from "react-router-dom";
+import NewsPage from "./components/NewsPage/NewsPage";
+import MusicPage from "./components/MusicPage/MusicPage";
+import SettingPage from "./components/SettingPage/SettingPage";
+import MessagePage from "./components/MessagePage/MessagePage";
 
 const App = (props) => {
     return (
@@ -14,14 +14,14 @@ const App = (props) => {
             <Header />
             <Nav />
             <div className={style.App_content}>
-                <Route path="/profile" render={() => <MyPage store={ props.store } />} />
-                <Route path="/dialogs" render={() => <DialogsContainer store={props.store} />} />
-                <Route path="/news" render={() => <News />} />
-                <Route path="/musics" render={() => <Musics />} />
-                <Route path="/settings" render={() => <Settings />} />
+                <Route path="/profile" render={() => <ProfilePage />} />
+                <Route path="/dialogs" render={() => <MessagePage />} />
+                <Route path="/news" render={() => <NewsPage />} />
+                <Route path="/musics" render={() => <MusicPage />} />
+                <Route path="/settings" render={() => <SettingPage />} />
             </div>
         </div>
     );
-}
+};
 
-export default (App);
+export default App;
