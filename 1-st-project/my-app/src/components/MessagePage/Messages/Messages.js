@@ -4,7 +4,7 @@ import React from "react";
 
 const Messages = (props) => {
   let pushMessages = props.messagePage.userMessages.map((m) => (
-    <Message userMessage={m.userMessage} />
+    <Message userMessage={ m.userMessage } key={m.id} />
     ));
     
     let sendMessage = () => {

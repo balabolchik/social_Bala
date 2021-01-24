@@ -1,0 +1,66 @@
+.user {
+    margin: 5px 0px;
+    padding: 5px 10px 15px 10px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 'a i';
+    border: 1px solid gray;
+    border-radius: none;
+}
+
+.avatar {
+    grid-area: a;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.userInfo {
+    grid-area: i;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: 'f f' 'ud b';
+}
+
+
+.fullname {
+    max-width: 100%;
+    text-align: left;
+    grid-area: f;
+    margin: 0px;
+}
+
+.userData {
+    grid-area: ud;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.userData table {
+    max-width: 400px;
+}
+
+.userData table tr td {
+    border-bottom: 1px dotted rgb(218, 218, 218);
+    max-width: 30px;
+}
+
+.userData * {
+    margin: 0px;
+}
+
+.buttons {
+    grid-area: b;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.buttons button {
+    width: 200px;
+    height: 30px;
+    margin-top: 5px;
+}

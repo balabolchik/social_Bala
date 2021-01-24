@@ -4,7 +4,7 @@ import React from 'react';
 
 const UserPosts = (props) => {
 
-    let myPosts = props.profilePage.userPosts.map(post => <Post text={post.text} />)
+    let myPosts = props.profilePage.userPosts.map(post => <Post text={post.text} key={post.id} />)
 
     let addNewPost = () => {
         props.addNewPost();

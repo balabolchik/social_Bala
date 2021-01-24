@@ -16,14 +16,7 @@
 }
 
 .addPost {
-    border-radius: 10px/50%;
     width: 150px;
     height: 30px;
     margin-top: 5px;
-    background-color: black;
-    color: white;
-}
-
-.addPost:focus {
-    outline: none;
 }

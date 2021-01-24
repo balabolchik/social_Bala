@@ -3,7 +3,7 @@ import style from './Header.module.css';
 const Header = () => {
     return (
         <div className={style.header}>
-            <img src='./../../img/logo.jpg' />
+            <img src='./../../img/logo.jpg' alt="#"/>
             <h1>Balabolchik</h1>
         </div>
     );

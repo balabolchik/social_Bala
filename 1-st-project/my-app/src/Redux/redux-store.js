@@ -3,6 +3,7 @@ import messagesReducer from "./messages-reducer";
 import musicReducer from "./music-reducer";
 import profileReducer from "./profile-reducer";
 import settingsReducer from "./settings-reducer";
+import userSearchReducer from "./userSearch-reducer";
 
 let redusers = combineReducers({
     profilePage: profileReducer,
@@ -10,6 +11,7 @@ let redusers = combineReducers({
     musicPage: musicReducer,
     newsPage: musicReducer,
     settingsPage: settingsReducer,
+    userSearchPage: userSearchReducer,
 });
 
 let store = createStore(redusers);

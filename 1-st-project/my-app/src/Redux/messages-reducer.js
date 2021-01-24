@@ -12,31 +12,11 @@ let initialState = {
         { id: 1, userMessage: "Hello, Oleg =)" },
         { id: 2, userMessage: "How are you?" },
         { id: 3, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd"},
-        {
-            id: 4,
-            userMessage:
-                "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd",
-        },
-        {
-            id: 5,
-            userMessage:
-                "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd",
-        },
-        {
-            id: 6,
-            userMessage:
-                "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd",
-        },
-        {
-            id: 7,
-            userMessage:
-                "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd",
-        },
-        {
-            id: 8,
-            userMessage:
-                "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd",
-        },
+        { id: 4, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd"},
+        { id: 5, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd"},
+        { id: 6, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd"},
+        { id: 7, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd"},
+        { id: 8, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvyudfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd"},
         { id: 9, userMessage: "Nastya, you are so beautifull!" },
     ],
     newMessageText: ``,
@@ -45,21 +25,17 @@ let initialState = {
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE: {
-            let stateCopy = { ...state };
-            stateCopy.userMessages = [...state.userMessages];
-            if (stateCopy.newMessageText !== ``) {
-                stateCopy.userMessages.push({
-                    id: 10,
-                    userMessage: `${state.newMessageText}`,
-                });
-            }
-            stateCopy.newMessageText = "";
-            return stateCopy;
+            return { 
+                ...state,
+                userMessages: (state.newMessageText!=="")?[...state.userMessages, { id: 10, userMessage: `${state.newMessageText}`}]:[...state.userMessages],
+                newMessageText: ""
+            };
         }
         case UPDATE_NEW_MESSAGE_TEXT: {
-            let stateCopy = { ...state };
-            stateCopy.newMessageText = action.newMessageText;
-            return stateCopy;
+            return { 
+                ...state,
+                newMessageText: action.newMessageText
+            };
         }
         default: {
             return state;
