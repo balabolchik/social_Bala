@@ -1,7 +1,10 @@
 .message {
     background-color: white;
+    max-width: 590px;
 }
 
-.message p {
+.message pre {
     padding: 10px;
+    white-space: pre-wrap;
+    line-height: 28px;
 }

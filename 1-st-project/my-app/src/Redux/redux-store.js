@@ -1,4 +1,5 @@
 import { combineReducers, createStore } from "redux";
+import authReducer from "./auth-reducer";
 import messagesReducer from "./messages-reducer";
 import musicReducer from "./music-reducer";
 import profileReducer from "./profile-reducer";
@@ -12,6 +13,7 @@ let redusers = combineReducers({
     newsPage: musicReducer,
     settingsPage: settingsReducer,
     userSearchPage: userSearchReducer,
+    auth: authReducer,
 });
 
 let store = createStore(redusers);

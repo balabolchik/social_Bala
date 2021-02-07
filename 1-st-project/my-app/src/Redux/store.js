@@ -104,10 +104,7 @@ let store = {
     this._state.messagePage = messagesReducer(this._state.messagePage, action);
     this._state.newsPage = newsReducer(this._state.newsPage, action);
     this._state.musicPage = musicReducer(this._state.musicPage, action);
-    this._state.settingsPage = settingsReducer(
-      this._state.settingsPage,
-      action
-    );
+    this._state.settingsPage = settingsReducer(this._state.settingsPage, action);
   },
 };
 

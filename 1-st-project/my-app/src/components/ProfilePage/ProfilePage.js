@@ -6,7 +6,7 @@ const ProfilePage = (props) => {
     return (
         <div className={style.myPage}>
             <div>
-                <ProfileInfo />
+                <ProfileInfo profile={props.profilePage.profile}/>
             </div>
             <div>
                 <UserPostsContainer />

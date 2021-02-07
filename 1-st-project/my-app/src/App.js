@@ -1,21 +1,21 @@
 import style from "./App.module.css";
-import Header from "./components/Header/Header";
 import Nav from "./components/Navbar/Nav";
-import ProfilePage from "./components/ProfilePage/ProfilePage";
+import ProfilePageContainer from "./components/ProfilePage/ProfilePageContainer";
 import { Route } from "react-router-dom";
 import NewsPage from "./components/NewsPage/NewsPage";
 import MusicPage from "./components/MusicPage/MusicPage";
 import SettingPage from "./components/SettingPage/SettingPage";
 import MessagePage from "./components/MessagePage/MessagePage";
 import UserSearchPageContainer from "./components/UserSearchPage/UserSearchPageContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
-const App = (props) => {
+const App = () => {
     return (
         <div className={style.App}>
-            <Header />
+            <HeaderContainer />
             <Nav />
             <div className={style.App_content}>
-                <Route path="/profile" render={() => <ProfilePage />} />
+                <Route path="/profile/:userId?" render={() => <ProfilePageContainer />} />
                 <Route path="/dialogs" render={() => <MessagePage />} />
                 <Route path="/user_search" render={() => <UserSearchPageContainer />} />
                 <Route path="/news" render={() => <NewsPage />} />

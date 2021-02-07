@@ -10,29 +10,42 @@
     margin: 0px;
 }
 
-.button {
-    padding: 15px 0px;
+.pages {
     display: flex;
     justify-content: center;
 }
 
-.button button {
-    border-radius: 10px/50%;
-    width: 150px;
-    height: 30px;
-    margin-top: 5px;
+.pages>div {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    height: 40px;
+    overflow: hidden;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.page {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    height: 40px;
+    width: 25px;
+    border-radius: 50% / 15px;
+    transition: all 0s ease;
+    font-size: 20px;
+}
+
+.page:hover {
+    background-color:  rgb(150, 150, 150);
+    border-width: 1px;
+}
+
+.page.activePage {
     background-color: black;
     color: white;
-    transition: all 0.7s ease;
-    border: 3px solid transparent;
-}
-
-.button button:hover {
-    background-color: rgb(214, 214, 214);
-    color: black;
-    border: 3px solid black;
-}
-
-.button button:focus {
-    outline: none;
+    width: 50px;
+    border-radius: 50%;
 }

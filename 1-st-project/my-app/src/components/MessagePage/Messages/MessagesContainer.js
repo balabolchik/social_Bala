@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { sendMessageCreator, updateNewMessageTextCreator } from "../../../Redux/messages-reducer";
+import { sendMessage, updateNewMessageText } from "../../../Redux/messages-reducer";
 import Messages from "./Messages";
 
 let stateToProps = (state) => {
@@ -8,13 +8,6 @@ let stateToProps = (state) => {
     }
 }
 
-let dispatchToProps = (dispatch) => {
-    return {
-        sendMessage: () => {dispatch(sendMessageCreator())},
-        updateNewMessageText: (text) => {dispatch(updateNewMessageTextCreator(text))}
-    }
-}
-
-const MessagesContainer = connect(stateToProps, dispatchToProps)(Messages);
+const MessagesContainer = connect(stateToProps, { sendMessage, updateNewMessageText })(Messages);
 
 export default MessagesContainer;

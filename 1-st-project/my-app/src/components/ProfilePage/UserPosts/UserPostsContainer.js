@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addPostCreator, updateNewPostTextCreator} from "../../../Redux/profile-reducer";
+import { addNewPost, updateNewPostText} from "../../../Redux/profile-reducer";
 import UserPosts from "./UserPosts";
 
 let stateToProps = (state) => {
@@ -7,13 +7,7 @@ let stateToProps = (state) => {
         profilePage: state.profilePage
     }
 }
-let dispatchToProps = (dispatch) => {
-    return {
-        updateNewPostText: (newPostText) => dispatch(updateNewPostTextCreator(newPostText)),
-        addNewPost: () => dispatch(addPostCreator())
-    }
-}
 
-const UserPostsContainer = connect(stateToProps, dispatchToProps)(UserPosts);
+const UserPostsContainer = connect(stateToProps, { updateNewPostText, addNewPost })(UserPosts);
 
 export default UserPostsContainer;
