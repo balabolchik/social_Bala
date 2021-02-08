@@ -4,6 +4,7 @@ const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
 const SET_TOTAL_USER_SIZE = "SET-TOTAL-USER-SIZE";
 const SET_IS_LOADED = "SET-IS-LOADED";
+const IS_FOLLOWING_IN_PROGRESS = "IS-FOLLOWIN_IS_PROGRESS";
 
 
 let initialState = {
@@ -11,7 +12,8 @@ let initialState = {
     currentPage: 1,
     countSize: 10,
     totalUserSize: 0,
-    isLoaded: true
+    isLoaded: true,
+    isFollowingInProgress: [],
 };
 
 const userSearchReducer = (state = initialState, action) => {
@@ -54,6 +56,13 @@ const userSearchReducer = (state = initialState, action) => {
                 ...state,
                 isLoaded: action.isLoaded
             }
+        case IS_FOLLOWING_IN_PROGRESS:
+            return {
+                ...state,
+                isFollowingInProgress: action.isLoaded
+                ? [...state.isFollowingInProgress, action.userId]
+                : state.isFollowingInProgress.filter(id => id !== action.userId)
+            }
         default:
             return state;
     }
@@ -65,6 +74,7 @@ export const setUsers = users =>  ( { type: SET_USERS, users });
 export const setCurrentPage = currentPage =>  ( { type: SET_CURRENT_PAGE, currentPage });
 export const setUserTotalCount = totalUserSize =>  ( { type: SET_TOTAL_USER_SIZE, totalUserSize });
 export const setIsLoaded = isLoaded =>  ( { type: SET_IS_LOADED, isLoaded });
+export const isFollowedInProgress = (isLoaded, userId) =>  ( { type: IS_FOLLOWING_IN_PROGRESS, isLoaded, userId });
 
 
 export default userSearchReducer;

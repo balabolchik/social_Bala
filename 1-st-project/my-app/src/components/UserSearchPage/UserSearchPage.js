@@ -12,9 +12,9 @@ const UserSearchPage = (props) => {
     return (
         <div className={style.userSearch}>
             {props.isLoaded?<Preloader />:null}
-            <h2 id="goUp">Users</h2>
+            <h2>Users</h2>
             {props.users.map((user) => (
-                <User key={user.id} user={user} addToFriends={props.addToFriends} deleteFromFriends={props.deleteFromFriends} />
+                <User key={user.id} user={user} addToFriends={props.addToFriends} deleteFromFriends={props.deleteFromFriends} isFollowingInProgress={props.isFollowingInProgress} isFollowedInProgress={props.isFollowedInProgress} />
             ))}
             <div className={style.pages}>
             <div>

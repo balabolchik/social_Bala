@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 import UserSearchPage from "./UserSearchPage";
 import {
@@ -9,28 +8,28 @@ import {
     setCurrentPage,
     setUserTotalCount,
     setIsLoaded,
+    isFollowedInProgress,
 } from "./../../Redux/userSearch-reducer";
+import { usersAPI } from "../../api/api";
 
 class UserSearchPageContainer extends React.Component {
     componentDidMount() {
         this.props.setIsLoaded(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.countSize}`, {
-            withCredentials: true
-        }).then((response) => {
+        usersAPI
+            .getUsers(this.props.currentPage, this.props.countSize)
+            .then((data) => {
                 this.props.setIsLoaded(false);
-                this.props.setUsers(response.data.items);
-                this.props.setUserTotalCount(response.data.totalCount);
+                this.props.setUsers(data.items);
+                this.props.setUserTotalCount(data.totalCount);
             });
     }
     onPageChanged = (pageNumber) => {
         this.props.setIsLoaded(true);
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.countSize}`, {
-            withCredentials: true
-        }).then((response) => {
-                this.props.setIsLoaded(false);
-                this.props.setUsers(response.data.items);
-            });
+        usersAPI.getUsers(pageNumber, this.props.countSize).then((data) => {
+            this.props.setIsLoaded(false);
+            this.props.setUsers(data.items);
+        });
     };
     render() {
         return (
@@ -43,6 +42,8 @@ class UserSearchPageContainer extends React.Component {
                 deleteFromFriends={this.props.deleteFromFriends}
                 onPageChanged={this.onPageChanged}
                 isLoaded={this.props.isLoaded}
+                isFollowingInProgress={this.props.isFollowingInProgress}
+                isFollowedInProgress={this.props.isFollowedInProgress}
             />
         );
     }
@@ -55,7 +56,16 @@ let stateToProps = (state) => {
         countSize: state.userSearchPage.countSize,
         totalUserSize: state.userSearchPage.totalUserSize,
         isLoaded: state.userSearchPage.isLoaded,
+        isFollowingInProgress: state.userSearchPage.isFollowingInProgress,
     };
 };
 
-export default connect(stateToProps, { addToFriends, deleteFromFriends, setUsers, setCurrentPage, setUserTotalCount, setIsLoaded } )(UserSearchPageContainer);
+export default connect(stateToProps, {
+    addToFriends,
+    deleteFromFriends,
+    setUsers,
+    setCurrentPage,
+    setUserTotalCount,
+    setIsLoaded,
+    isFollowedInProgress
+})(UserSearchPageContainer);

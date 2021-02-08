@@ -2,35 +2,33 @@ import style from "./User.module.css";
 import userImage from "./../../../img/user.png";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
+import { usersAPI } from "../../../api/api";
+import ButtonFollow from "./ButtonFollow/ButtonFollow";
+import ButtonUnfollow from "./BottonUnfollow.js/ButtonUnfollow";
+import ButtonDisabled from "./BottonDisabled/ButtonDisabled";
 
 
 class User extends React.Component {
     deleteFromFriends = () =>{
-        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.user.id}`, {
-            withCredentials:true,
-            headers: {
-                "API-KEY": "8cb4dee8-f0f8-47ab-8a0e-2a61fd1566a4"
-            }
-        }).then(response => {
-            if (response.data.resultCode === 0) {
+        usersAPI.unfollow(this.props.user.id, this.props.isFollowedInProgress).then(data => {
+            if (data.resultCode === 0) {
                 this.props.deleteFromFriends(this.props.user.id);
             }
+            this.props.isFollowedInProgress(false, this.props.user.id);
         })
     }
+
     addToFriends = () => {
-        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.user.id}`, {}, {
-            withCredentials:true,
-            headers: {
-                "API-KEY": "8cb4dee8-f0f8-47ab-8a0e-2a61fd1566a4"
-            }
-        }).then(response => {
-            if (response.data.resultCode === 0) {
+        usersAPI.follow(this.props.user.id, this.props.isFollowedInProgress).then(data => {
+            if (data.resultCode === 0) {
                 this.props.addToFriends(this.props.user.id);
             }
+            this.props.isFollowedInProgress(false, this.props.user.id);
         })
     }
+
     render() {
+        let progress = this.props.isFollowingInProgress.some(id => id === this.props.user.id)
         return (
             <div className={style.user}>
                 <div className={style.avaAndBut}>
@@ -42,13 +40,9 @@ class User extends React.Component {
                         />
                     </NavLink>
                         {this.props.user.followed ? 
-                            <button className={style.deleteFromFriends} onClick={this.deleteFromFriends}>
-                                <span className={style.unrotate}>&#10006;</span> Delete from Friends
-                            </button>
+                            (progress?<ButtonDisabled progress={progress} />:<ButtonUnfollow deleteFromFriends={this.deleteFromFriends} />)
                         : 
-                            <button onClick={this.addToFriends}>
-                                <span className={style.rotate}>&#10006;</span> Add to Friends
-                            </button>
+                            (progress?<ButtonDisabled progress={progress} />:<ButtonFollow addToFriends={this.addToFriends}/>)
                         }
                 </div>
                 <NavLink to={`/profile/${this.props.user.id}`} className={style.userInfo}>
