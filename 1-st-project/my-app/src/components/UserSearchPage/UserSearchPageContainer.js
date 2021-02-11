@@ -2,34 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import UserSearchPage from "./UserSearchPage";
 import {
-    addToFriends,
-    deleteFromFriends,
-    setUsers,
     setCurrentPage,
-    setUserTotalCount,
-    setIsLoaded,
-    isFollowedInProgress,
+    getUsers,
+    follow,
+    unfollow,
 } from "./../../Redux/userSearch-reducer";
-import { usersAPI } from "../../api/api";
 
 class UserSearchPageContainer extends React.Component {
     componentDidMount() {
-        this.props.setIsLoaded(true);
-        usersAPI
-            .getUsers(this.props.currentPage, this.props.countSize)
-            .then((data) => {
-                this.props.setIsLoaded(false);
-                this.props.setUsers(data.items);
-                this.props.setUserTotalCount(data.totalCount);
-            });
+        this.props.getUsers(this.props.currentPage, this.props.countSize);
     }
     onPageChanged = (pageNumber) => {
-        this.props.setIsLoaded(true);
+        this.props.getUsers(pageNumber, this.props.countSize);
         this.props.setCurrentPage(pageNumber);
-        usersAPI.getUsers(pageNumber, this.props.countSize).then((data) => {
-            this.props.setIsLoaded(false);
-            this.props.setUsers(data.items);
-        });
     };
     render() {
         return (
@@ -38,12 +23,11 @@ class UserSearchPageContainer extends React.Component {
                 totalUserSize={this.props.totalUserSize}
                 countSize={this.props.countSize}
                 users={this.props.users}
-                addToFriends={this.props.addToFriends}
-                deleteFromFriends={this.props.deleteFromFriends}
                 onPageChanged={this.onPageChanged}
                 isLoaded={this.props.isLoaded}
                 isFollowingInProgress={this.props.isFollowingInProgress}
-                isFollowedInProgress={this.props.isFollowedInProgress}
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
             />
         );
     }
@@ -61,11 +45,8 @@ let stateToProps = (state) => {
 };
 
 export default connect(stateToProps, {
-    addToFriends,
-    deleteFromFriends,
-    setUsers,
     setCurrentPage,
-    setUserTotalCount,
-    setIsLoaded,
-    isFollowedInProgress
+    getUsers,
+    follow,
+    unfollow
 })(UserSearchPageContainer);

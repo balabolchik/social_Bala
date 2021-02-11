@@ -1,6 +1,6 @@
 .nav {
-    padding: 5px;
-    grid-area: n;
+    border-radius: 8px;
+    padding: 0px 0px;
     font-size: 24px;
     border: 2px solid black;
     max-height: fit-content;
@@ -9,12 +9,14 @@
   }
   
   .nav div {
+    box-sizing: content-box;
     display: inline-block;
-    width: 60px;
-    width: 100%;
+    width: 164px;
   }
   
   .nav div a {
+    text-decoration: none;
+    color: black;
     display: inline-block;
     border: 1px solid transparent;
     border-radius: 5px;

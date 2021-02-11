@@ -1,7 +1,6 @@
 body {
     max-width: 980px;
     margin: auto;
-    overflow-y: visible;
     background-color: rgb(220, 220, 220);
 }
 
@@ -22,4 +21,9 @@ button:hover {
 
 button:focus {
     outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

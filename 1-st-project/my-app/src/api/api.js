@@ -12,13 +12,17 @@ export const usersAPI = {
     getUsers(currentPage = 1, countSize = 20) {
         return instance.get(`users?page=${currentPage}&count=${countSize}`).then((response) => {return response.data});
     },
-    follow(userId, isFollowedInProgress) {
-        isFollowedInProgress(true, userId);
+    follow(userId) {
         return instance.post(`follow/${userId}`).then(response => {return response.data})
     },
-    unfollow(userId, isFollowedInProgress) {
-        isFollowedInProgress(true, userId);
+    unfollow(userId) {
         return instance.delete(`follow/${userId}`).then(response => {return response.data})
     },
+    auth() {
+        return instance.get(`auth/me`).then((response) => { return response.data});
+    },
+    getUser(userId) {
+        return instance.get(`profile/${userId}`).then((response) => { return response.data });
+    }
 }
 

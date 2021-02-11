@@ -2,7 +2,6 @@ import style from "./User.module.css";
 import userImage from "./../../../img/user.png";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../../api/api";
 import ButtonFollow from "./ButtonFollow/ButtonFollow";
 import ButtonUnfollow from "./BottonUnfollow.js/ButtonUnfollow";
 import ButtonDisabled from "./BottonDisabled/ButtonDisabled";
@@ -10,21 +9,11 @@ import ButtonDisabled from "./BottonDisabled/ButtonDisabled";
 
 class User extends React.Component {
     deleteFromFriends = () =>{
-        usersAPI.unfollow(this.props.user.id, this.props.isFollowedInProgress).then(data => {
-            if (data.resultCode === 0) {
-                this.props.deleteFromFriends(this.props.user.id);
-            }
-            this.props.isFollowedInProgress(false, this.props.user.id);
-        })
+        this.props.unfollow(this.props.user.id);
     }
 
     addToFriends = () => {
-        usersAPI.follow(this.props.user.id, this.props.isFollowedInProgress).then(data => {
-            if (data.resultCode === 0) {
-                this.props.addToFriends(this.props.user.id);
-            }
-            this.props.isFollowedInProgress(false, this.props.user.id);
-        })
+        this.props.follow(this.props.user.id);
     }
 
     render() {

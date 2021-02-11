@@ -1,6 +1,7 @@
 .message {
     background-color: white;
     max-width: 590px;
+    border-radius: 5px;
 }
 
 .message pre {

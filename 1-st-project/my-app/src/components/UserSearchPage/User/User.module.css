@@ -6,6 +6,8 @@
     grid-gap: 10px;
     grid-template-areas: 'a i';
     border: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .avaAndBut {

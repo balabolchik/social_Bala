@@ -9,8 +9,8 @@ const Header = (props) => {
                 <img src={logoImg} alt="#" />
                 <h1>Balabolchik</h1>
             </div>
-            <div className={style.login}>
-                { props.isAuth?props.login:<NavLink to='/login'>Login</NavLink>}
+            <div className={style.auth}>
+                { props.isAuth?props.login:<NavLink className={style.login} to='/login'>Login</NavLink>}
                 </div>
         </div>
     );

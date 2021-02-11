@@ -8,20 +8,29 @@ import SettingPage from "./components/SettingPage/SettingPage";
 import MessagePage from "./components/MessagePage/MessagePage";
 import UserSearchPageContainer from "./components/UserSearchPage/UserSearchPageContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
-const App = () => {
+const App = (props) => {
     return (
-        <div className={style.App}>
+        <div className={style.app}>
             <HeaderContainer />
-            <Nav />
-            <div className={style.App_content}>
-                <Route path="/profile/:userId?" render={() => <ProfilePageContainer />} />
-                <Route path="/dialogs" render={() => <MessagePage />} />
-                <Route path="/user_search" render={() => <UserSearchPageContainer />} />
-                <Route path="/news" render={() => <NewsPage />} />
-                <Route path="/musics" render={() => <MusicPage />} />
-                <Route path="/settings" render={() => <SettingPage />} />
-            </div>
+            {props.isAuth ? (
+                <div className={style.content}>
+                    <Nav />
+                    <div className={style.app_content}>
+                        <Route path="/profile/:userId?" render={() => <ProfilePageContainer />} />
+                        <Route path="/dialogs" render={() => <MessagePage />} />
+                        <Route path="/user_search" render={() => <UserSearchPageContainer />} />
+                        <Route path="/news" render={() => <NewsPage />} />
+                        <Route path="/musics" render={() => <MusicPage />} />
+                        <Route path="/settings" render={() => <SettingPage />} />
+                    </div>
+                </div>
+            ) : (
+                <div>
+                    <Route path="/login" render={() => <Login />} />
+                </div>
+            )}
         </div>
     );
 };

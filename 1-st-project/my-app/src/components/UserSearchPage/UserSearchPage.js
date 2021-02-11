@@ -14,7 +14,13 @@ const UserSearchPage = (props) => {
             {props.isLoaded?<Preloader />:null}
             <h2>Users</h2>
             {props.users.map((user) => (
-                <User key={user.id} user={user} addToFriends={props.addToFriends} deleteFromFriends={props.deleteFromFriends} isFollowingInProgress={props.isFollowingInProgress} isFollowedInProgress={props.isFollowedInProgress} />
+                <User 
+                    key={user.id}
+                    user={user} 
+                    isFollowingInProgress={props.isFollowingInProgress} 
+                    follow={props.follow}
+                    unfollow={props.unfollow}
+                />
             ))}
             <div className={style.pages}>
             <div>

@@ -9,7 +9,28 @@
   font-family: var(--main-font);
 }
 
-.App {
+.app {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas: 'header' 'cont';
+  grid-gap: 5px;
+}
+
+.content {
+  grid-area: cont;
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  grid-template-areas: 'nav con';
+  grid-gap: 5px;
+}
+
+.app_content {
+  grid-area: con;
+}
+
+
+
+/* .App {
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
@@ -32,4 +53,4 @@
 
 .App.App_content:only-child {
   padding: 10px;
-}
+} */
