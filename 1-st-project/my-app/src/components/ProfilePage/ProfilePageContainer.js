@@ -1,8 +1,9 @@
 import ProfilePage from "./ProfilePage";
 import React from "react";
 import { connect } from "react-redux";
-import { getUser, setUserProfile } from "../../Redux/profile-reducer";
+import { getUser, setUserProfile, getUserStatus, uppdateUserStatus } from "../../Redux/profile-reducer";
 import { withRouter } from "react-router-dom";
+import { compose } from "redux";
 
 class ProfilePageContainer extends React.Component {
 
@@ -11,6 +12,7 @@ class ProfilePageContainer extends React.Component {
         if (!userId) {
             userId = 13049;
         }
+        this.props.getUserStatus(userId);
         this.props.getUser(userId);
     }
 
@@ -19,8 +21,13 @@ class ProfilePageContainer extends React.Component {
     };
 };
 
+
 let stateToProps = (state) => ({
-    profilePage: state.profilePage
+    profilePage: state.profilePage,
+    status: state.profilePage.status,
 })
 
-export default connect(stateToProps, { setUserProfile, getUser  })(withRouter(ProfilePageContainer));
+export default compose(
+    withRouter,
+    connect(stateToProps, { setUserProfile, getUser, getUserStatus, uppdateUserStatus })
+)(ProfilePageContainer);

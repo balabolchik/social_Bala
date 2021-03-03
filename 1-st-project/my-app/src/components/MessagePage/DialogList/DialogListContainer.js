@@ -7,6 +7,4 @@ let stateToProps = (state) => {
     }
 }
 
-const DialogListContainer = connect(stateToProps)(DialogList);
-
-export default DialogListContainer;
+export default connect(stateToProps)(DialogList);

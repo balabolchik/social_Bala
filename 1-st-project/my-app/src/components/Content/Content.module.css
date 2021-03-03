@@ -1,0 +1,11 @@
+.content {
+    grid-area: cont;
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    grid-template-areas: 'nav con';
+    grid-gap: 5px;
+}
+
+.app_content {
+    grid-area: con;
+}

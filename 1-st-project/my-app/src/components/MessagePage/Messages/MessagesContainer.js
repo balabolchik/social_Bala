@@ -8,6 +8,4 @@ let stateToProps = (state) => {
     }
 }
 
-const MessagesContainer = connect(stateToProps, { sendMessage, updateNewMessageText })(Messages);
-
-export default MessagesContainer;
+export default connect(stateToProps, { sendMessage, updateNewMessageText })(Messages);

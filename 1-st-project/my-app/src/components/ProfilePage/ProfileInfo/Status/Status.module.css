@@ -1,0 +1,13 @@
+.status input {
+    width: fit-content;
+    max-width: 90%;
+}
+
+
+.status div pre {
+    font-size: 15px;
+    display: block;
+    cursor: pointer;
+    text-shadow: 0px 1px 5px black;
+    margin: 0;
+}

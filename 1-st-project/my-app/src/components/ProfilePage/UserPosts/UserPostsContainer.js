@@ -8,6 +8,4 @@ let stateToProps = (state) => {
     }
 }
 
-const UserPostsContainer = connect(stateToProps, { updateNewPostText, addNewPost })(UserPosts);
-
-export default UserPostsContainer;
+export default connect(stateToProps, { updateNewPostText, addNewPost })(UserPosts);
