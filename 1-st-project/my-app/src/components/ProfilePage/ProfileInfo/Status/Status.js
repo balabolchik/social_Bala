@@ -27,7 +27,6 @@ class Status extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevStatus) {
-        debugger
         if (prevProps.status !== this.props.status) {
             this.setState({
                 status: this.props.status
@@ -41,7 +40,7 @@ class Status extends React.Component {
             <div className={style.status}>
                 {!this.state.editMode ? (
                     <div onDoubleClick={this.activateEditMode}>
-                        <pre>{this.props.status || '--------'}</pre>
+                        <p>{this.props.status || '--------'}</p>
                     </div>
                 ) : (
                     <div>

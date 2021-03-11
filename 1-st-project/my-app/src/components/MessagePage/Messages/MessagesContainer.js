@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { sendMessage, updateNewMessageText } from "../../../Redux/messages-reducer";
+import { sendMessage } from "../../../Redux/messages-reducer";
 import Messages from "./Messages";
 
 let stateToProps = (state) => {
@@ -8,4 +8,4 @@ let stateToProps = (state) => {
     }
 }
 
-export default connect(stateToProps, { sendMessage, updateNewMessageText })(Messages);
+export default connect(stateToProps, { sendMessage })(Messages);

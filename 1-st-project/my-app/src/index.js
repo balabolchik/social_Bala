@@ -9,8 +9,9 @@ import App from "./App";
 
 ReactDOM.render(
         <BrowserRouter>
+        
                 <Provider store={store}>
-                    <App />
+                    <App isAuth={store.getState().auth.isAuth}/>
                 </Provider>
         </BrowserRouter>,
         document.getElementById("root")

@@ -58,3 +58,7 @@
 .login {
   cursor: pointer;
 }
+
+.logout {
+  width: 100%;
+}

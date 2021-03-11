@@ -21,3 +21,7 @@
     height: 30px;
     margin-top: 5px;
 }
+
+.newPost form div textarea {
+    width: 95%;
+}

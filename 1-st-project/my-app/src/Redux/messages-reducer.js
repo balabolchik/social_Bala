@@ -1,4 +1,3 @@
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 const SEND_MESSAGE = "SEND-MESSAGE";
 
 let initialState = {
@@ -19,7 +18,6 @@ let initialState = {
         { id: 8, userMessage: "How are you?sffgdhgdffgdgnbvfvdjvhdufgvy udfgvudfhvdfvhudfvudfvd skjdcnshbdvcysgbdhcnjsdcsd"},
         { id: 9, userMessage: "Nastya, you are so beautifull!" },
     ],
-    newMessageText: ``,
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -27,14 +25,7 @@ const messagesReducer = (state = initialState, action) => {
         case SEND_MESSAGE: {
             return { 
                 ...state,
-                userMessages: (state.newMessageText!=="")?[...state.userMessages, { id: 10, userMessage: `${state.newMessageText}`}]:[...state.userMessages],
-                newMessageText: ""
-            };
-        }
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            return { 
-                ...state,
-                newMessageText: action.newMessageText
+                userMessages: [...state.userMessages, { id: 10, userMessage: `${action.newMessageText}`}]
             };
         }
         default: {
@@ -43,7 +34,6 @@ const messagesReducer = (state = initialState, action) => {
     }
 };
 
-export const updateNewMessageText = newMessageText => ({ type: UPDATE_NEW_MESSAGE_TEXT, newMessageText });
-export const sendMessage = () => ({ type: SEND_MESSAGE });
+export const sendMessage = newMessageText => ({ type: SEND_MESSAGE, newMessageText });
 
 export default messagesReducer;

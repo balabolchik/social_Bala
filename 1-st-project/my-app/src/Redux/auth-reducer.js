@@ -1,4 +1,5 @@
-import { usersAPI } from "../api/api";
+import { stopSubmit } from "redux-form";
+import { authAPI } from "../api/api";
 
 const SET_USER_DATA = "SET-USER-DATA";
 
@@ -15,7 +16,6 @@ const authReducer = (state = initialState, action) => {
             return { 
                 ...state,
                 ...action.userData,
-                isAuth: true
             };
         }
         default: {
@@ -24,17 +24,39 @@ const authReducer = (state = initialState, action) => {
     }
 };
 
-export const setAuthUserData = (userId, login, email) => ({ type: SET_USER_DATA, userData: {userId, login, email} });
+export const setAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, userData: {userId, login, email, isAuth} });
+
 
 export const auth = () => {
     return (dispatch) => {
-        usersAPI.auth().then((response) => {
+        authAPI.auth().then((response) => {
             if (response.resultCode === 0) {
-                dispatch(setAuthUserData(response.data.id, response.data.login, response.data.email));
+                dispatch(setAuthUserData(response.data.id, response.data.login, response.data.email, true));
             }
         });
     }
+}
 
+export const login = ( email, password, rememberMe ) => {
+    return (dispatch) => {
+        authAPI.login( email, password, rememberMe ).then((response) => {
+            if (response.resultCode === 0) {
+                dispatch(auth());
+            } else {
+                dispatch(stopSubmit('login', {_error: response.messages}));
+            }
+        });
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        authAPI.logout().then((response) => {
+            if (response.resultCode === 0) {
+                dispatch(setAuthUserData(null, null, null, false));
+            }
+        });
+    }
 }
 
 export default authReducer;

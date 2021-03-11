@@ -3,8 +3,13 @@
     max-width: 90%;
 }
 
+.status div {
+    width: 100%;
+    overflow: hidden;
+}
 
-.status div pre {
+
+.status div p {
     font-size: 15px;
     display: block;
     cursor: pointer;

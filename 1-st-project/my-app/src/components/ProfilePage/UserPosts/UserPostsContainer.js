@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addNewPost, updateNewPostText} from "../../../Redux/profile-reducer";
+import { addNewPost } from "../../../Redux/profile-reducer";
 import UserPosts from "./UserPosts";
 
 let stateToProps = (state) => {
@@ -8,4 +8,4 @@ let stateToProps = (state) => {
     }
 }
 
-export default connect(stateToProps, { updateNewPostText, addNewPost })(UserPosts);
+export default connect(stateToProps, { addNewPost })(UserPosts);

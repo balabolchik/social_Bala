@@ -6,6 +6,7 @@ import musicReducer from "./music-reducer";
 import profileReducer from "./profile-reducer";
 import settingsReducer from "./settings-reducer";
 import userSearchReducer from "./userSearch-reducer";
+import {reducer as formReducer} from 'redux-form';
 
 
 let redusers = combineReducers({
@@ -16,6 +17,7 @@ let redusers = combineReducers({
     settingsPage: settingsReducer,
     userSearchPage: userSearchReducer,
     auth: authReducer,
+    form: formReducer,
 });
 
 let store = createStore(redusers, applyMiddleware(thunk));
