@@ -1,6 +1,13 @@
+import { createSelector } from "reselect";
+
 export const getUsers = (state) => {
-    return state.userSearchPage.users.filter( u => true);
+    return state.userSearchPage.users;
 }
+
+
+export const getUsersSelector = createSelector( getUsers, (users) => {
+    return users.filter( u => true);
+});
 
 export const getCurrentPage = (state) => {
     return state.userSearchPage.currentPage;

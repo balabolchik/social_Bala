@@ -7,7 +7,7 @@ import {
     follow,
     unfollow,
 } from "./../../Redux/userSearch-reducer";
-import { getUsers, getCurrentPage, getCountSize, getTotalUserSize, getIsLoaded, getIsFollowingInProgress } from "./../../Redux/selectors/searchUsers";
+import { getCurrentPage, getCountSize, getTotalUserSize, getIsLoaded, getIsFollowingInProgress, getUsersSelector } from "./../../Redux/selectors/searchUsers";
 
 
 class UserSearchPageContainer extends React.Component {
@@ -50,7 +50,7 @@ class UserSearchPageContainer extends React.Component {
 let stateToProps = (state) => {
     console.log('MapStateToProps');
     return {
-        users: getUsers(state),
+        users: getUsersSelector(state),
         currentPage: getCurrentPage(state),
         countSize: getCountSize(state),
         totalUserSize: getTotalUserSize(state),
