@@ -78,7 +78,7 @@ export const setUserTotalCount = totalUserSize =>  ( { type: SET_TOTAL_USER_SIZE
 export const setIsLoaded = isLoaded =>  ( { type: SET_IS_LOADED, isLoaded });
 export const isFollowedInProgress = (isLoaded, userId) =>  ( { type: IS_FOLLOWING_IN_PROGRESS, isLoaded, userId });
 
-export const getUsers = (currentPage, countSize) => {
+export const receiveUsers = (currentPage, countSize) => {
     return (dispatch) => {
         dispatch(setIsLoaded(true));
         usersAPI

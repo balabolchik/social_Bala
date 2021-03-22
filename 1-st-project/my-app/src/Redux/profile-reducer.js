@@ -13,6 +13,7 @@ let initialState = {
     ],
     profile: null,
     status: "",
+    fake: 10,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -34,6 +35,12 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 status: action.status
+            }
+        }
+        case 'FAKE': {
+            return {
+                ...state,
+                fake: state.fake+1,
             }
         }
         default: {

@@ -3,20 +3,23 @@ import { connect } from "react-redux";
 import UserSearchPage from "./UserSearchPage";
 import {
     setCurrentPage,
-    getUsers,
+    receiveUsers,
     follow,
     unfollow,
 } from "./../../Redux/userSearch-reducer";
+import { getUsers, getCurrentPage, getCountSize, getTotalUserSize, getIsLoaded, getIsFollowingInProgress } from "./../../Redux/selectors/searchUsers";
+
 
 class UserSearchPageContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.countSize);
+        this.props.receiveUsers(this.props.currentPage, this.props.countSize);
     }
     onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.countSize);
+        this.props.receiveUsers(pageNumber, this.props.countSize);
         this.props.setCurrentPage(pageNumber);
     };
     render() {
+        console.log('RENDER')
         return (
             <UserSearchPage
                 currentPage={this.props.currentPage}
@@ -33,20 +36,32 @@ class UserSearchPageContainer extends React.Component {
     }
 }
 
+// let stateToProps = (state) => {
+//     return {
+//         users: state.userSearchPage.users,
+//         currentPage: state.userSearchPage.currentPage,
+//         countSize: state.userSearchPage.countSize,
+//         totalUserSize: state.userSearchPage.totalUserSize,
+//         isLoaded: state.userSearchPage.isLoaded,
+//         isFollowingInProgress: state.userSearchPage.isFollowingInProgress,
+//     };
+// };
+
 let stateToProps = (state) => {
+    console.log('MapStateToProps');
     return {
-        users: state.userSearchPage.users,
-        currentPage: state.userSearchPage.currentPage,
-        countSize: state.userSearchPage.countSize,
-        totalUserSize: state.userSearchPage.totalUserSize,
-        isLoaded: state.userSearchPage.isLoaded,
-        isFollowingInProgress: state.userSearchPage.isFollowingInProgress,
+        users: getUsers(state),
+        currentPage: getCurrentPage(state),
+        countSize: getCountSize(state),
+        totalUserSize: getTotalUserSize(state),
+        isLoaded: getIsLoaded(state),
+        isFollowingInProgress: getIsFollowingInProgress(state),
     };
 };
 
 export default connect(stateToProps, {
     setCurrentPage,
-    getUsers,
+    receiveUsers,
     follow,
     unfollow
 })(UserSearchPageContainer);

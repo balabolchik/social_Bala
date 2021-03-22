@@ -7,6 +7,12 @@ import "./index.css";
 import { Provider } from "react-redux"
 import App from "./App";
 
+
+// setInterval(() => {
+//     store.dispatch({type:'FAKE'});
+// }, 1000);
+
+
 ReactDOM.render(
         <BrowserRouter>
         

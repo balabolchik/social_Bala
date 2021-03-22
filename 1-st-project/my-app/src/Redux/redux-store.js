@@ -7,6 +7,7 @@ import profileReducer from "./profile-reducer";
 import settingsReducer from "./settings-reducer";
 import userSearchReducer from "./userSearch-reducer";
 import {reducer as formReducer} from 'redux-form';
+import appReducer from "./app-reducer";
 
 
 let redusers = combineReducers({
@@ -17,6 +18,7 @@ let redusers = combineReducers({
     settingsPage: settingsReducer,
     userSearchPage: userSearchReducer,
     auth: authReducer,
+    app: appReducer,
     form: formReducer,
 });
 
