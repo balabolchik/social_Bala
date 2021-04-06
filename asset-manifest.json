@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/social_Bala/static/css/main.9c069fa3.chunk.css",
-    "main.js": "/social_Bala/static/js/main.5da32aac.chunk.js",
-    "main.js.map": "/social_Bala/static/js/main.5da32aac.chunk.js.map",
+    "main.js": "/social_Bala/static/js/main.6a561613.chunk.js",
+    "main.js.map": "/social_Bala/static/js/main.6a561613.chunk.js.map",
     "runtime-main.js": "/social_Bala/static/js/runtime-main.7c7d8926.js",
     "runtime-main.js.map": "/social_Bala/static/js/runtime-main.7c7d8926.js.map",
     "static/js/2.36b6fede.chunk.js": "/social_Bala/static/js/2.36b6fede.chunk.js",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.7c7d8926.js",
     "static/js/2.36b6fede.chunk.js",
     "static/css/main.9c069fa3.chunk.css",
-    "static/js/main.5da32aac.chunk.js"
+    "static/js/main.6a561613.chunk.js"
   ]
 }
