@@ -1,32 +1,32 @@
 {
   "files": {
     "main.css": "/social_Bala/static/css/main.9c069fa3.chunk.css",
-    "main.js": "/social_Bala/static/js/main.7ef14b46.chunk.js",
-    "main.js.map": "/social_Bala/static/js/main.7ef14b46.chunk.js.map",
-    "runtime-main.js": "/social_Bala/static/js/runtime-main.c584ca5f.js",
-    "runtime-main.js.map": "/social_Bala/static/js/runtime-main.c584ca5f.js.map",
-    "static/js/2.f59d0f34.chunk.js": "/social_Bala/static/js/2.f59d0f34.chunk.js",
-    "static/js/2.f59d0f34.chunk.js.map": "/social_Bala/static/js/2.f59d0f34.chunk.js.map",
+    "main.js": "/social_Bala/static/js/main.5da32aac.chunk.js",
+    "main.js.map": "/social_Bala/static/js/main.5da32aac.chunk.js.map",
+    "runtime-main.js": "/social_Bala/static/js/runtime-main.7c7d8926.js",
+    "runtime-main.js.map": "/social_Bala/static/js/runtime-main.7c7d8926.js.map",
+    "static/js/2.36b6fede.chunk.js": "/social_Bala/static/js/2.36b6fede.chunk.js",
+    "static/js/2.36b6fede.chunk.js.map": "/social_Bala/static/js/2.36b6fede.chunk.js.map",
     "static/css/3.bb88f15d.chunk.css": "/social_Bala/static/css/3.bb88f15d.chunk.css",
-    "static/js/3.ac01809b.chunk.js": "/social_Bala/static/js/3.ac01809b.chunk.js",
-    "static/js/3.ac01809b.chunk.js.map": "/social_Bala/static/js/3.ac01809b.chunk.js.map",
+    "static/js/3.b2e18d09.chunk.js": "/social_Bala/static/js/3.b2e18d09.chunk.js",
+    "static/js/3.b2e18d09.chunk.js.map": "/social_Bala/static/js/3.b2e18d09.chunk.js.map",
     "static/css/4.f3c40df6.chunk.css": "/social_Bala/static/css/4.f3c40df6.chunk.css",
-    "static/js/4.205f12db.chunk.js": "/social_Bala/static/js/4.205f12db.chunk.js",
-    "static/js/4.205f12db.chunk.js.map": "/social_Bala/static/js/4.205f12db.chunk.js.map",
+    "static/js/4.b8075da4.chunk.js": "/social_Bala/static/js/4.b8075da4.chunk.js",
+    "static/js/4.b8075da4.chunk.js.map": "/social_Bala/static/js/4.b8075da4.chunk.js.map",
     "static/js/5.faa865d8.chunk.js": "/social_Bala/static/js/5.faa865d8.chunk.js",
     "static/js/5.faa865d8.chunk.js.map": "/social_Bala/static/js/5.faa865d8.chunk.js.map",
     "index.html": "/social_Bala/index.html",
     "static/css/3.bb88f15d.chunk.css.map": "/social_Bala/static/css/3.bb88f15d.chunk.css.map",
     "static/css/4.f3c40df6.chunk.css.map": "/social_Bala/static/css/4.f3c40df6.chunk.css.map",
     "static/css/main.9c069fa3.chunk.css.map": "/social_Bala/static/css/main.9c069fa3.chunk.css.map",
-    "static/js/2.f59d0f34.chunk.js.LICENSE.txt": "/social_Bala/static/js/2.f59d0f34.chunk.js.LICENSE.txt",
+    "static/js/2.36b6fede.chunk.js.LICENSE.txt": "/social_Bala/static/js/2.36b6fede.chunk.js.LICENSE.txt",
     "static/media/logo.c20d7274.jpg": "/social_Bala/static/media/logo.c20d7274.jpg",
     "static/media/user.png": "/social_Bala/static/media/user.06e7d20e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c584ca5f.js",
-    "static/js/2.f59d0f34.chunk.js",
+    "static/js/runtime-main.7c7d8926.js",
+    "static/js/2.36b6fede.chunk.js",
     "static/css/main.9c069fa3.chunk.css",
-    "static/js/main.7ef14b46.chunk.js"
+    "static/js/main.5da32aac.chunk.js"
   ]
 }
